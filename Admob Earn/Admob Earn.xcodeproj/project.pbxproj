@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		72144A4B2E771D0000CE0FCC /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 72144A4A2E771D0000CE0FCC /* GoogleMobileAds */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		72144A1F2E77173D00CE0FCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72144A4B2E771D0000CE0FCC /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 				72144A122E77173C00CE0FCC /* Admob Earn */,
 				72144A212E77173D00CE0FCC /* Admob EarnTests */,
 				72144A2B2E77173D00CE0FCC /* Admob EarnUITests */,
+				72144A462E771B9000CE0FCC /* Frameworks */,
 				72144A112E77173C00CE0FCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +96,13 @@
 				72144A282E77173D00CE0FCC /* Admob EarnUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		72144A462E771B9000CE0FCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +125,7 @@
 			);
 			name = "Admob Earn";
 			packageProductDependencies = (
+				72144A4A2E771D0000CE0FCC /* GoogleMobileAds */,
 			);
 			productName = "Admob Earn";
 			productReference = 72144A102E77173C00CE0FCC /* Admob Earn.app */;
@@ -195,6 +209,9 @@
 			);
 			mainGroup = 72144A072E77173C00CE0FCC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				72144A492E771CFA00CE0FCC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 72144A112E77173C00CE0FCC /* Products */;
 			projectDirPath = "";
@@ -416,10 +433,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
@@ -455,10 +473,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
@@ -593,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72144A492E771CFA00CE0FCC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72144A4A2E771D0000CE0FCC /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72144A492E771CFA00CE0FCC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 72144A082E77173C00CE0FCC /* Project object */;
 }
