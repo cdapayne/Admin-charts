@@ -1,10 +1,13 @@
 import Foundation
 
 final class AdMobService {
-    /// Placeholder token; implement OAuth2 to obtain a valid token in production.
-    var accessToken: String?
+    private let oauth = OAuth2Manager()
+    private var accessToken: String?
 
     func fetchEarnings(for filter: TimeFilter) async throws -> [Earning] {
+        if accessToken == nil {
+            accessToken = try? await oauth.signIn()
+        }
         guard let token = accessToken else {
             return sampleData(for: filter)
         }
