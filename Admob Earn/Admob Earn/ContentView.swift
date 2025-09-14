@@ -1,6 +1,5 @@
 import SwiftUI
 import Charts
-import GoogleMobileAds
 
 struct ContentView: View {
     @StateObject private var viewModel = EarningsViewModel()
@@ -23,8 +22,6 @@ struct ContentView: View {
 
             Spacer()
 
-            AdBannerView(adUnitId: "ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx")
-                .frame(width: 320, height: 50)
         }
         .padding()
     }
