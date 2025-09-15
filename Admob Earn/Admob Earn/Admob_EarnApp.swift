@@ -1,14 +1,12 @@
-//
-//  Admob_EarnApp.swift
-//  Admob Earn
-//
-//  Created by Backup Admin on 9/14/25.
-//
-
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct Admob_EarnApp: App {
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
