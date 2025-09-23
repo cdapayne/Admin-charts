@@ -41,7 +41,7 @@ final class AdMobService {
         )
         let requestBody = NetworkReportRequest(reportSpec: spec)
         let body = try encoder.encode(requestBody)
-        var request = try makeRequest(path: "/\(accountName)/networkReport:generate", method: "POST")
+        var request = try makeRequest(path: "\(accountName)/networkReport:generate", method: "POST")
         request.httpBody = body
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -55,7 +55,12 @@ final class AdMobService {
     }
 
     private func listAccounts() async throws -> [AdMobAccount] {
-        let request = try makeRequest(path: "/accounts")
+        let request = try makeRequest(path: "accounts")
+        // Log the request URL and headers for debugging
+        print("[AdMobService] Requesting accounts with URL: \(request.url?.absoluteString ?? "nil")")
+        if let headers = request.allHTTPHeaderFields {
+            print("[AdMobService] Request headers: \(headers)")
+        }
         let data = try await send(request: request)
         do {
             let response = try decoder.decode(ListAccountsResponse.self, from: data)
@@ -82,6 +87,7 @@ final class AdMobService {
         let (data, response) = try await URLSession.shared.data(for: request)
         if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
             let message = String(data: data, encoding: .utf8) ?? ""
+            print("[AdMobService] API error: Status \(http.statusCode), message: \(message)")
             throw ServiceError.apiError(statusCode: http.statusCode, message: message)
         }
         return data
