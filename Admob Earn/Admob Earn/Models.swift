@@ -8,6 +8,23 @@ struct Earning: Identifiable, Hashable {
     let amount: Double
 }
 
+struct AdMobAccount: Decodable, Identifiable, Hashable {
+    let name: String
+    let publisherId: String
+    let displayName: String?
+    let currencyCode: String?
+    let reportingTimeZone: String?
+
+    var id: String { name }
+
+    var preferredDisplayName: String {
+        if let name = displayName, !name.isEmpty {
+            return name
+        }
+        return publisherId
+    }
+}
+
 enum TimeFilter: String, CaseIterable, Identifiable {
     case day = "1 Day"
     case week = "7 Days"
